@@ -10,93 +10,41 @@
 // DOM
 // Prendiamo l'esercizio 1 di Interval e stampiamo la data nel body usando document.body.innerHTML = "...""
 
-// ----------------------
-// ---------------------- Timeout
-
 (function () {
-  const now = new Date();
-  const currentTime =
-    "Ora " + now.getHours() + " : " + "Minuti " + now.getMinutes();
+  const myTime = () => {
+    const hrs = new Date().getHours();
+    const mins = new Date().getMinutes();
+    const seconds = new Date().getSeconds();
 
-  setTimeout(timeOut, 1000);
-  setTimeout(timeOut2, 5_000);
-  setTimeout(timeOut3, 10_000);
+    console.log(`${hrs} : ${mins} : ${seconds}`);
+  };
 
-  function timeOut() {
-    console.log(currentTime);
-  }
+  setTimeout(myTime, 1000);
+  setTimeout(myTime, 5_000);
+  setTimeout(myTime, 10_000);
 
-  function timeOut2() {
-    console.log(currentTime);
-  }
+  const displayTime = () => {
+    const hrs = new Date().getHours();
+    const mins = new Date().getMinutes();
+    const seconds = new Date().getSeconds();
 
-  function timeOut3() {
-    console.log(currentTime);
-  }
-})();
-
-// ----------------------
-// ---------------------- Timeout +
-
-(function () {
-  const now = new Date();
-  const currentTime =
-    "Ora " + now.getHours() + " : " + "Minuti " + now.getMinutes();
-
-  const delayedTime = () => {
-    console.log(currentTime);
+    console.log(`${hrs} : ${mins} : ${seconds}`);
   };
 
   const array = [1, 5, 10];
 
   array.forEach((value) => {
-    setTimeout(delayedTime, value * 1000);
+    setTimeout(() => displayTime(), value * 1000);
   });
-})();
 
-// ----------------------
-// ---------------------- Interval
+  const clock = () => {
+    const hrs = new Date().getHours();
+    const mins = new Date().getMinutes();
+    const seconds = new Date().getSeconds();
 
-(function () {
-  const now = new Date();
-  const currentTime =
-    now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    console.log(`${hrs} : ${mins} : ${seconds}`);
 
-  const myClock = () => {
-    console.log();
+    document.body.innerHTML = `<h1> ${hrs}:${mins}:${seconds} </h1>`;
   };
-
-  console.log(`${currentTime}`);
-
-  setInterval(myClock, 1000);
-})();
-
-// ----------------------
-// ---------------------- DOM
-
-// (function () {
-//   const now = new Date();
-//   const currentTime =
-//     now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-
-//   const myClock = () => {
-//     console.log();
-
-//     document.body.innerHTML = `<h1> ${currentTime} </h1>`;
-//   };
-
-//   setInterval(myClock, 1000);
-// })();
-
-// ----------------------
-// ---------------------- DOM altra prova
-
-(function () {
-  const now = new Date();
-  const currentTime =
-    now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-
-  setInterval(function () {
-    document.body.innerHTML = `<h1> ${currentTime} </h1>`;
-  }, 1000);
+  setInterval(clock, 1000);
 })();
